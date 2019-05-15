@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Accordion</title>
+    <link rel="stylesheet" href="accordion.css">
+  </head>
+  <body>
+    <div id="app">
+      <h1>Accordion</h1>
+      <div class="accordion">
+        <template v-for="(accordion, index) in accordions">
+          <section class="accordion-item" :class="{ 'is-opened': accordion.isOpened }">
+            <h2 @click="toggle($event, index)">Text {{accordion.title}}</h2>
+            <div class="accordion-item-text" :style="{ height: accordion.height }">
+              <p>{{accordion.text}}</p>
+            </div>
+          </section>
+        </template>
+      </div>
+    </div>
+    <script src="../libs/vue.js"></script>
+    <script src="accordion.vue.js"></script>
+  </body>
+</html>
